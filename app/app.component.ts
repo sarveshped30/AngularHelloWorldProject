@@ -7,9 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title:string = 'HelloWorld';
-  imgUrl:string = "assets/images/BridgeLabz-Logo.jpg"
+  imgUrl:string = "assets/images/BridgeLabz-Logo.jpg";
   url:string = "https://www.bridgelabz.com";
-  userName:string = ""
+  userName:string = "";
+  nameError:string = "";
 
   //On application start will initialize title to "Hello from bridgelabz" 
   ngOnInit() : void {
@@ -22,5 +23,14 @@ export class AppComponent {
     window.open(this.url);
   }
 
-
+  //On input validate username and bind with view 
+  onUserInput($event:any) {
+    console.log("Change event occured!", $event)
+    const nameRegex = RegExp('^[A-Z][a-z]{2,}$');
+    if(nameRegex.test(this.userName)) {
+      this.nameError = "";
+    } else {
+      this.nameError = "username Invalid!"
+    }
+  }
 }
