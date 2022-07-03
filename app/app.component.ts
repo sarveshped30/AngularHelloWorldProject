@@ -9,6 +9,7 @@ export class AppComponent {
   title:string = 'HelloWorld';
   imgUrl:string = "assets/images/BridgeLabz-Logo.jpg"
   url:string = "https://www.bridgelabz.com";
+  userName:string = ""
 
   //On application start will initialize title to "Hello from bridgelabz" 
   ngOnInit() : void {
@@ -20,4 +21,6 @@ export class AppComponent {
     console.log("Save button is clicked",$event);
     window.open(this.url);
   }
+
+
 }
